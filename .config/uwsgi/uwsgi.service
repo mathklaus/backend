@@ -1,0 +1,15 @@
+[Unit]
+Description=uWSGI service
+After=syslog.target
+
+[Service]
+ExecStart=/home/klaus/.pyenv/versions/pyenv31101/bin/uwsgi -i /home/klaus/backend/.config/uwsgi/backend.ini
+
+Restart=always
+KillSignal=SIGNOUT
+Type=notify
+StandardError=syslog
+NotifyAccess=all
+
+[Install]
+WantedBy=multi-user.target
